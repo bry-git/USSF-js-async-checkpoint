@@ -17,6 +17,16 @@ const getLocation = (id) => {
     })
 }
 
+const getStrength = (type) => {
+    fetch(`https://pokeapi.co/api/v2/type/${type}`)
+    .then(response => response.json())
+    .then(data => console.log(data.damage_relations))
+    .catch(err => console.error(err))
+}
+
+getStrength(10)
+
+
 const pokedex = () => {
     return new Promise((resolve, reject) => {
         fs.readFile(inFile, 'utf-8', function (err, data) {
@@ -51,4 +61,4 @@ const pokedex = () => {
 }
 
 
-pokedex(inFile)
+//pokedex(inFile)
